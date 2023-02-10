@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:practica12"
         mc:Ignorable="d"
+        Style="{StaticResource ResourceKey= BColor}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Frame Name = "frm" Grid.Row="1" NavigationUIVisibility="Hidden">
+
+        </Frame>
     </Grid>
 </Window>

@@ -1,5 +1,4 @@
 ﻿using practica12.Classs;
-using practica12.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,21 +14,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace practica12
+namespace practica12.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для HotelPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HotelPage : Page
     {
-        public MainWindow()
+       
+        List<Hotel> listHotel = Base.ep.Hotel.ToList();
+        public HotelPage()
         {
             InitializeComponent();
-            Base.ep = new EP2();
-            FrameClass.MainFrame = frm;
-            FrameClass.MainFrame.Navigate(new MainPage());
+            dgHotels.ItemsSource = Base.ep.Hotel.ToList();
             
-
+            
         }
     }
 }
