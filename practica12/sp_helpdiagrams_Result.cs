@@ -10,21 +10,13 @@
 namespace practica12
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Type
+    public partial class sp_helpdiagrams_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type()
-        {
-            this.TypeOfTour = new HashSet<TypeOfTour>();
-        }
-    
-        public int Id { get; set; }
+        public string Database { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypeOfTour> TypeOfTour { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

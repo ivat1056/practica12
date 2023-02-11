@@ -25,7 +25,7 @@ namespace practica12
         public MainWindow()
         {
             InitializeComponent();
-            Base.ep = new EP2();
+            Base.ep = new Entities();
             FrameClass.MainFrame = frm;
             FrameClass.MainFrame.Navigate(new MainPage());
             

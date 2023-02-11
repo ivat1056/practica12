@@ -34,5 +34,17 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#445c93"/>
         </Style>
+        <Style x:Key="btnstyle1" TargetType="Button">
+            <!--кнопки-->
+            <Style.Setters>
+                <Setter Property="Background" Value="#e31e24"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Width" Value="250"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style.Setters>
+        </Style>
     </Application.Resources>
 </Application>

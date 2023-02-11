@@ -10,9 +10,11 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Отели"/>
+        <StackPanel>
+        <StackPanel>
+                <TextBlock Text="Отели" FontSize="28" Style="{StaticResource TBStyle}"/>
         </StackPanel>
-        <DataGrid Name="dgHotels" AutoGenerateColumns="False" CanUserAddRows="False" FontSize="16" FontFamily="Comic Sans MS">
+        <DataGrid Name="dgHotels" AutoGenerateColumns="False" Height="450" CanUserAddRows="False" FontSize="16" FontFamily="Comic Sans MS" Margin="0,0,0,5">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Кол-во звезд" Width="*" Binding="{Binding CountOfStars}"/>
@@ -21,11 +23,35 @@
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="btnUpdate" Uid="{Binding Id}" Content="Редактировать"/>
+                                <Button Name="btnUpdate" Uid="{Binding Id}" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource btnstyle1}" Content="Редактировать"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btn_Tours" Content="Туры" Click="btn_Tours_Click"  Style="{StaticResource btnstyle1}" />
+            <Button Name="btn_Add" Content="Добавить" Click="btn_Add_Click"  Style="{StaticResource btnstyle1}" />
+            <Button Name="btn_Dell" Content="Туры" Click="btn_Dell_Click"  Style="{StaticResource btnstyle1}" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+        <!--Меню с номерами страниц-->
+            <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <GroupBox Header="Введите количество записей на одной странице">
+            <TextBox Name="txtPageCount" TextChanged="txtPageCount_TextChanged"/>
+            </GroupBox>
+            <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseDown="GoPage_MouseDown"/>
+            <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseDown="GoPage_MouseDown"/>
+        </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

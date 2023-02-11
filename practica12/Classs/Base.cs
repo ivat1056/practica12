@@ -8,6 +8,6 @@ namespace practica12
 {
     internal class Base
     {
-        public static  EP2 ep;
+        public static  Entities ep;
     }
 }
