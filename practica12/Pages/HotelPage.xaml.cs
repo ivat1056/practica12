@@ -21,6 +21,7 @@ namespace practica12.Pages
     /// </summary>
     public partial class HotelPage : Page
     {
+       
         Pagin pc = new Pagin();
         List<Hotel> listHotel = Base.ep.Hotel.ToList();
         public HotelPage()
@@ -51,7 +52,7 @@ namespace practica12.Pages
         {
             TextBlock tb = (TextBlock)sender;
 
-            switch (tb.Uid)  // определяем, куда конкретно было сделано нажатие
+            switch (tb.Uid)  
             {
                 case "prev":
                     pc.CurrentPage--;
@@ -78,13 +79,43 @@ namespace practica12.Pages
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            FrameClass.MainFrame.Navigate(new PageUpdADD());
         }
 
         private void btn_Dell_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dgHotels.SelectedItems.Count != 0)
+            {
+                foreach (Hotel hotel in dgHotels.SelectedItems)
+                {
+                    List<Hotel> hot = Base.ep.Hotel.Where(z => z.Id == hotel.Id).ToList();
+                    foreach (Hotel h in hot)
+                    {
+                          if (MessageBox.Show("Вы хотите удалить {0}", Name, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                            {
+                                Base.ep.Hotel.Remove(hotel);
+                                Base.ep.SaveChanges();
+                                MessageBox.Show("Успешное удаление!!!");
+                                FrameClass.MainFrame.Navigate(new HotelPage());
+                            }
+                        
+                        
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите отель для удаления!!!");
+            }
         }
-       
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+            Hotel hotel = Base.ep.Hotel.FirstOrDefault(x => x.Id == index);
+            FrameClass.MainFrame.Navigate(new PageUpdADD(hotel));
+        }
     }
 }

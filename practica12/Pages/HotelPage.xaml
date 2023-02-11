@@ -23,7 +23,7 @@
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                                <Button Name="btnUpdate" Uid="{Binding Id}" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource btnstyle1}" Content="Редактировать"/>
+                                <Button Name="btnUpdate" Uid="{Binding Id}" Click="btnUpdate_Click" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource btnstyle1}" Content="Редактировать"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -32,7 +32,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Name="btn_Tours" Content="Туры" Click="btn_Tours_Click"  Style="{StaticResource btnstyle1}" />
             <Button Name="btn_Add" Content="Добавить" Click="btn_Add_Click"  Style="{StaticResource btnstyle1}" />
-            <Button Name="btn_Dell" Content="Туры" Click="btn_Dell_Click"  Style="{StaticResource btnstyle1}" />
+            <Button Name="btn_Dell" Content="Удалить" Click="btn_Dell_Click"  Style="{StaticResource btnstyle1}" />
             </StackPanel>
         </StackPanel>
         <StackPanel>
